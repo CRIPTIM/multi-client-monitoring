@@ -5,25 +5,25 @@
 
 \begin{document}
 \begin{tikzpicture}
-	\begin{axis}[
-			legend pos=north west,
-			legend cell align=left,
-			xlabel=Number of clients,
-			ylabel=Mean time (seconds),
+  \begin{axis}[
+      legend pos=north west,
+      legend cell align=left,
+      xlabel=Number of clients,
+      ylabel=Mean time (seconds),
       xmin=0,
       ymin=0,
-			xtick={5,25,50,100},
-			ytick={.5,1,...,4},
-			axis lines=left,
-			after end axis/.code={
-				\path (axis cs:0,0) node [anchor=north east] {0};
-			}
-		]
-		% The standard deviation is so little, most of the time invisible.
-		\addplot+[error bars/.cd,y dir=both,y explicit] table[x=clients,y=mean,y error=sd] {performance_CURVE_gentoken.dat};
-		\addplot+[error bars/.cd,y dir=both,y explicit] table[x=clients,y=mean,y error=sd] {performance_CURVE_setup.dat};
-		\addplot+[mark=triangle*,error bars/.cd,y dir=both,y explicit] table[x=clients,y=mean,y error=sd] {performance_CURVE_test.dat};
-		\legend{\algorithm{GenToken},\algorithm{Setup},\algorithm{Test}}
-	\end{axis}
+      xtick={5,25,50,100},
+      ytick={.5,1,...,4},
+      axis lines=left,
+      after end axis/.code={
+        \path (axis cs:0,0) node [anchor=north east] {0};
+      }
+    ]
+    % The standard deviation is so little, most of the time invisible.
+    \addplot+[error bars/.cd,y dir=both,y explicit] table[x=clients,y=mean,y error=sd] {performance_CURVE_gentoken.dat};
+    \addplot+[error bars/.cd,y dir=both,y explicit] table[x=clients,y=mean,y error=sd] {performance_CURVE_setup.dat};
+    \addplot+[mark=triangle*,error bars/.cd,y dir=both,y explicit] table[x=clients,y=mean,y error=sd] {performance_CURVE_test.dat};
+    \legend{\algorithm{GenToken},\algorithm{Setup},\algorithm{Test}}
+  \end{axis}
 \end{tikzpicture}
 \end{document}
