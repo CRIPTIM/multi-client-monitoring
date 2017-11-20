@@ -10,8 +10,10 @@
 			legend cell align=left,
 			xlabel=Number of clients,
 			ylabel=Mean time (seconds),
+      xmin=0,
+      ymin=0,
 			xtick={5,25,50,100},
-			ytick={0,.5,...,3},
+			ytick={.5,1,...,4},
 			axis lines=left,
 			after end axis/.code={
 				\path (axis cs:0,0) node [anchor=north east] {0};
